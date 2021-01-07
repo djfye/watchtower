@@ -118,6 +118,16 @@ Environment Variable: DOCKER_API_VERSION
              Default: "1.24"
 ```
 
+## Include restarting
+Will also include created and exited containers.
+
+```
+            Argument: --include-restarting
+Environment Variable: WATCHTOWER_INCLUDE_RESTARTING
+                Type: Boolean
+             Default: false
+```
+
 ## Include stopped
 Will also include created and exited containers.
 
@@ -164,7 +174,7 @@ Environment Variable: WATCHTOWER_LABEL_ENABLE
 ## Without updating containers
 Will only monitor for new images, send notifications and invoke the [pre-check/post-check hooks](https://containrrr.dev/watchtower/lifecycle-hooks/), but will **not** update the containers.
 
-> ### ⚠️ Please note
+> **⚠️ Please note**
 >
 > Due to Docker API limitations the latest image will still be pulled from the registry.
 
@@ -221,7 +231,7 @@ Environment Variable: WATCHTOWER_RUN_ONCE
 ```
 
 ## HTTP API Mode
-Runs Watchtower in HTTP API mode, only allowing image updates to be triggered by an HTTP request.
+Runs Watchtower in HTTP API mode, only allowing image updates to be triggered by an HTTP request. For details see [HTTP API](https://containrrr.github.io/watchtower/http-api-mode).
 
 ```
             Argument: --http-api
@@ -238,9 +248,7 @@ Sets an authentication token to HTTP API requests.
 Environment Variable: WATCHTOWER_HTTP_API_TOKEN
                 Type: String
              Default: -
-```
-
-## Filter by scope
+```## Filter by scope
 Update containers that have a `com.centurylinklabs.watchtower.scope` label set with the same value as the given argument. This enables [running multiple instances](https://containrrr.github.io/watchtower/running-multiple-instances).
 
 ```
@@ -249,6 +257,16 @@ Environment Variable: WATCHTOWER_SCOPE
                 Type: String
              Default: -
 ``` 
+
+## HTTP API Metrics
+Enables a metrics endpoint, exposing prometheus metrics via HTTP. See [Metrics](metrics.md) for details.  
+
+```
+            Argument: --http-api-metrics
+Environment Variable: WATCHTOWER_HTTP_API_METRICS
+                Type: Boolean
+             Default: false
+```
 
 ## Scheduling
 [Cron expression](https://pkg.go.dev/github.com/robfig/cron@v1.2.0?tab=doc#hdr-CRON_Expression_Format) in 6 fields (rather than the traditional 5) which defines when and how often to check for new images. Either `--interval` or the schedule expression
