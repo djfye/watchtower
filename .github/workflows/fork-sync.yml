@@ -11,10 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: tgymnich/fork-sync@v1.2.1
+      - uses: tgymnich/fork-sync@v1.3.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           owner: containrrr
           base: master
           head: master
+          auto_approve: true
           pr_title: Merge
