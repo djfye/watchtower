@@ -19,3 +19,4 @@ jobs:
           head: master
           auto_approve: true
           pr_title: Merge
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
