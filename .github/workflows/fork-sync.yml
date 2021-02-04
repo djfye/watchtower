@@ -17,6 +17,6 @@ jobs:
           owner: containrrr
           base: master
           head: master
-          auto_approve: true
+          # auto_approve: true
           pr_title: Merge
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          # personal_token: ${{ secrets.PERSONAL_TOKEN }}
